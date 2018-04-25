@@ -1,7 +1,0 @@
-vsftpd.conf
-redis.conf
-snmpd.conf
-httpd.conf
-zabbix_agentd.conf
-rsyncd.conf
-php.ini
