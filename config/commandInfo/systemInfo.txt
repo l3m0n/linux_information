@@ -1,0 +1,47 @@
+# c_hostname
++ 主机名
+> hostname
+
+# d_shell
++ shell程序
+> cat /etc/shells 2>/dev/null
+
+# d_path
++ 环境变量
+> echo $PATH 2>/dev/null
+
+# d_dns
++ 本地dns
+> cat /etc/resolv.conf 2>/dev/null | grep "nameserver"
+
+# route
++ 路由信息
+> route 2>/dev/null | grep default
+
+# hosts
++ hosts文件
+> cat /etc/hosts
+
+# z_disk
++ 挂载磁盘
+> mount -l
+
+# zzz_dir
++ home/root/bin/sbin目录
+> ls -Ahl /home/ /root/ /sbin/ /bin/ /usr/bin/ /usr/sbin/ 2>/dev/null
+
+# z_arp
++ arp缓存
+> arp -a
+
+# z_mail
++ mail目录
+> ls -lA /var/mail 2>/dev/null
+
+# z_crontab
++ 计划任务
+> ls -Al /etc/crontab && grep -E "^[^#]" /etc/crontab && echo "****************************" && ls -Al /var/spool/cron/crontabs/ 2>/dev/null&& ls /var/spool/cron/crontabs/ 2>/dev/null | sed "s:^:/var/spool/cron/crontabs//:" | xargs grep -E "^[^#]" 2>/dev/null | ls -Al /var/spool/cron/ 2>/dev/null && ls /var/spool/cron/ 2>/dev/null | sed "s:^:/var/spool/cron//:" | xargs grep -E "^[^#]" 2>/dev/null
+
+# zz_history
++ history文件
+> find / -type f -iname ".*_history" 2>/dev/null | xargs -i awk -v f={} 'BEGIN {print f;}{print;}END {print "--------------";}' {}

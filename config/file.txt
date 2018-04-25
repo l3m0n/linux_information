@@ -1,0 +1,7 @@
+/etc/zabbix/zabbix_agentd.conf
+/etc/vsftpd/vsftpd.conf
+/etc/rsyncd.conf
+/etc/php.ini
+/etc/httpd.conf
+/etc/redis.conf
+/etc/snmp/snmpd.conf

@@ -1,0 +1,40 @@
+# a_current_user
++ 当前权限
+> whoami
+
+# b_userInfo
++ 用户信息
+> cat /etc/passwd | cut -d ":" -f 1,2,3,4,6,7 2>/dev/null
+
+# c_localUser
++ 本地用户
+> grep -v "^#" /etc/passwd | awk -F: '$3 == 0 || $3 == 500 || $3 == 501 || $3 == 502 || $3 == 1000 || $3 == 1001 || $3 == 1002 || $3 == 2000 || $3 == 2001 || $3 == 2002 { print }'
+
+# d_onlineUser
++ 在线用户
+> w
+
+# e_shadow
++ hash信息
+> cat /etc/shadow 2>/dev/null
+
+# e_passRule
++ hash加密规则
+> cat /etc/login.defs 2>/dev/null | grep "PASS_MAX_DAYS\|PASS_MIN_DAYS\|PASS_WARN_AGE\|ENCRYPT_METHOD" 2>/dev/null | grep -v "#" 2>/dev/null
+
+# f_userGroup
++ 用户组信息
+> for i in $(cat /etc/passwd 2>/dev/null| cut -d":" -f1 2>/dev/null);do id $i;done 2>/dev/null
+
+# g_lastlog
++ 最后登录用户信息
+> lastlog 2>/dev/null |grep -v "Never"
+
+# g_last
++ 最后登录信息
+> last
+
+# userCrontab
++ 所有用户的计划任务
+> cat /etc/passwd | cut -d ":" -f 1 | xargs -n1 crontab -l -u 2>/dev/null
+
