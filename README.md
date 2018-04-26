@@ -4,6 +4,8 @@
 
 linux_information是一款针对linux下信息收集的工具
 
+文章介绍: http://www.cnblogs.com/iamstudy/articles/python_linux_information.html
+
 ##### 主要模块：
 
 + 系统信息，能了解主机的地址、版本等信息
